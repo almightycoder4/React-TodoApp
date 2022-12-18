@@ -1,7 +1,4 @@
-import { useState, useEffect } from "react";
 export default function Addtodo(props) {
-  const [state, setstate] = useState();
-
   function addTodo() {
     let todo = document.getElementById("todobox").value;
     let task = {
@@ -35,7 +32,6 @@ export default function Addtodo(props) {
       >
         Add Todo
       </button>
-      <h3>{state}</h3>
     </div>
   );
 }

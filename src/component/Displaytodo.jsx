@@ -1,34 +1,25 @@
 export default function Displaytodo(props) {
   function changeTodo(status, id) {
+    let change;
     if (status) {
-      var myHeaders = new Headers();
-      myHeaders.append("Content-Type", "application/json");
-      var requestOptions = {
-        headers: myHeaders,
-        method: "PATCH",
-        redirect: "follow",
-        body: JSON.stringify({ status: false }),
-      };
-
-      fetch(`http://localhost:3000/todolist/${id}`, requestOptions)
-        .then((response) => response.text())
-        .then((result) => console.log(result))
-        .catch((error) => console.log("error", error));
+      change = false;
     } else {
-      var myHeaders = new Headers();
-      myHeaders.append("Content-Type", "application/json");
-      var requestOptions = {
-        headers: myHeaders,
-        method: "PATCH",
-        redirect: "follow",
-        body: JSON.stringify({ status: true }),
-      };
-
-      fetch(`http://localhost:3000/todolist/${id}`, requestOptions)
-        .then((response) => response.text())
-        .then((result) => console.log(result))
-        .catch((error) => console.log("error", error));
+      change = true;
     }
+
+    var requestOptions = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "PATCH",
+      redirect: "follow",
+      body: JSON.stringify({ status: change }),
+    };
+
+    fetch(`http://localhost:3000/todolist/${id}`, requestOptions)
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
     window.location.href = "/";
   }
 

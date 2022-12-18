@@ -12,15 +12,12 @@
     "web-vitals": "^2.1.4",
     "json-server": "^0.16.2"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "scripts": {
+    "start": "node server.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "start": "node server.js"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
