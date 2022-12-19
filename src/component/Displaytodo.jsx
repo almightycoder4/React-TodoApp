@@ -1,3 +1,4 @@
+import "./displaytodo.css";
 export default function Displaytodo(props) {
   function changeTodo(status, id) {
     let change;
@@ -26,7 +27,7 @@ export default function Displaytodo(props) {
     window.location.href = "/";
   }
 
-  function deltask(id) {
+  function deltask(id, name) {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     var requestOptions = {
@@ -42,6 +43,7 @@ export default function Displaytodo(props) {
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
+    alert(`You have deleted ${name}.`);
     window.location.href = "/";
   }
 
@@ -49,7 +51,7 @@ export default function Displaytodo(props) {
   if (length > 0) {
     return (
       <div id="todolist" style={{ display: "flex", justifyContent: "center" }}>
-        <table style={{ border: "2px solid red" }}>
+        <table>
           <thead>
             <tr>
               <th>ID</th>
@@ -80,7 +82,7 @@ export default function Displaytodo(props) {
                   <td>
                     <button
                       onClick={() => {
-                        deltask(el.id);
+                        deltask(el.id, el.task);
                       }}
                     >
                       Delete

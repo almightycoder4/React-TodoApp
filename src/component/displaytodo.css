@@ -1,0 +1,55 @@
+/* default styling. Nothing to do with freexing first row and column */
+
+table {
+  font-family: helvetica;
+  margin-top: 50px;
+}
+td,
+th {
+  border: 1px solid;
+  padding: 10px;
+  min-width: 200px;
+  background: white;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+thead th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: hsl(20, 50%, 70%);
+}
+
+tfoot {
+  position: -webkit-sticky;
+  bottom: 0;
+  z-index: 2;
+}
+
+td {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  background: hsl(20, 50%, 70%);
+}
+
+tbody {
+  overflow: scroll;
+  height: 50px;
+  cursor: pointer;
+}
+
+/* MAKE LEFT COLUMN FIXEZ */
+tr > :first-child {
+  position: -webkit-sticky;
+  position: sticky;
+  background: hsl(116, 79%, 44%);
+  left: 0;
+  width: 50px;
+}
+/* don't do this */
+tr > :first-child {
+  box-shadow: inset 0px 1px rgb(186, 0, 0);
+}

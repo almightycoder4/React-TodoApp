@@ -18,19 +18,20 @@ export default function Addtodo(props) {
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
+    alert(`${todo} added to movies list. Goto the last Page..`);
+    window.location.href = "/";
   }
   return (
     <div>
       <h3> Add Todo Section</h3>
-      <input type="text" id="todobox" />
+      <input type="text" id="todobox" placeholder="Enter Movie Name" />
       <button
         id="addbtn"
         onClick={() => {
           addTodo();
-          window.location.href = "/";
         }}
       >
-        Add Todo
+        Add Movie
       </button>
     </div>
   );

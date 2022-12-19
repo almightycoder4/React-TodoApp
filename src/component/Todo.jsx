@@ -34,7 +34,7 @@ export default function Todo() {
   console.log(len);
 
   return (
-    <div style={{ textAlign: "center" }}>
+    <div style={{ textAlign: "center", margin: "auto" }}>
       <h1>React Todo Server</h1>
       <Addtodo />
       {todo && <Displaytodo todo={todo} />}
@@ -68,7 +68,7 @@ export default function Todo() {
       />
       <button
         onClick={() => {
-          setcount(len / 10);
+          setcount(Math.ceil(len / 10));
         }}
       >
         Last Page
