@@ -7,14 +7,14 @@ export default function Todo() {
   let [count, setcount] = useState(1);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/todolist?_page=${count}`)
+    fetch(`https://morning-charm-curiosity.glitch.me/todolist?_page=${count}`)
       .then((response) => {
         return response.json();
       })
       .then((data) => {
         settodo(data);
       });
-    fetch(`http://localhost:3000/todolist`)
+    fetch(`https://morning-charm-curiosity.glitch.me/`)
       .then((response) => {
         return response.json();
       })

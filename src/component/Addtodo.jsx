@@ -14,7 +14,7 @@ export default function Addtodo(props) {
       body: JSON.stringify(task),
     };
 
-    fetch("http://localhost:3000/todolist", requestOptions)
+    fetch("https://morning-charm-curiosity.glitch.me/todolist", requestOptions)
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));

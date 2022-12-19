@@ -16,7 +16,7 @@ export default function Displaytodo(props) {
       body: JSON.stringify({ status: change }),
     };
 
-    fetch(`http://localhost:3000/todolist/${id}`, requestOptions)
+    fetch(`https://morning-charm-curiosity.glitch.me/todolist/${id}`, requestOptions)
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
@@ -32,7 +32,7 @@ export default function Displaytodo(props) {
       redirect: "follow",
     };
 
-    fetch(`http://localhost:3000/todolist/${id}`, requestOptions)
+    fetch(`https://morning-charm-curiosity.glitch.me/todolist/${id}`, requestOptions)
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
