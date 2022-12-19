@@ -65,7 +65,7 @@ export default function Displaytodo(props) {
                 <tr>
                   <td>{el.id}</td>
                   <td>{el.task}</td>
-                  <td id="status">{el.status ? "Complete" : "Incomplete"}</td>
+                  <td id="status">{el.status ? "Watched" : "Not Watched"}</td>
 
                   <td>
                     <button
