@@ -15,11 +15,14 @@ export default function Displaytodo(props) {
       redirect: "follow",
       body: JSON.stringify({ status: change }),
     };
-
-    fetch(`https://morning-charm-curiosity.glitch.me/todolist/${id}`, requestOptions)
+    fetch(
+      `https://morning-charm-curiosity.glitch.me/todolist/${id}`,
+      requestOptions
+    )
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
+    alert(`You have ${change ? "watched" : "not watched"} the movie`);
     window.location.href = "/";
   }
 
@@ -32,7 +35,10 @@ export default function Displaytodo(props) {
       redirect: "follow",
     };
 
-    fetch(`https://morning-charm-curiosity.glitch.me/todolist/${id}`, requestOptions)
+    fetch(
+      `https://morning-charm-curiosity.glitch.me/todolist/${id}`,
+      requestOptions
+    )
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));

@@ -1,28 +1,37 @@
 import { useState, useEffect } from "react";
 import Addtodo from "./Addtodo";
 import Displaytodo from "./Displaytodo";
+export const fetchData = async (count) => {
+  try {
+    let res = await fetch(
+      `https://morning-charm-curiosity.glitch.me/todolist?_page=${count}`
+    );
+    let data = await res.json();
+    return data;
+  } catch (error) {
+    alert(error);
+  }
+};
+export const fetchLen = async () => {
+  try {
+    let res = await fetch(`https://morning-charm-curiosity.glitch.me/todolist`);
+    let data = await res.json();
+
+    return data.length;
+  } catch (error) {
+    alert(error);
+  }
+};
 export default function Todo() {
-  let [todo, settodo] = useState(null);
-  let [len, setlen] = useState();
+  let [todo, settodo] = useState([]);
+  let [len, setlen] = useState(0);
   let [count, setcount] = useState(1);
 
   useEffect(() => {
-    fetch(`https://morning-charm-curiosity.glitch.me/todolist?_page=${count}`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        settodo(data);
-      });
-    fetch(`https://morning-charm-curiosity.glitch.me/`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setlen(data.length);
-      });
+    fetchData(count).then((todo) => settodo([...todo]));
+    fetchLen().then((len) => setlen(len));
   }, [count]);
-  //console.log(len);
+  console.log(len);
 
   return (
     <div style={{ textAlign: "center" }}>
